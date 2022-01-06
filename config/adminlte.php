@@ -232,6 +232,16 @@ return [
         [
             'text' => 'Cadastrar novo Usuário',
             'url' => '/home/create',
+        ],
+        [
+            'text' => 'Lista de Produtos',
+            'url' => '/produtos',
+
+        ],
+        [
+            'text' => 'Cadastrar Produtos',
+            'url' => '/produtos/create',
+
         ]
 
 

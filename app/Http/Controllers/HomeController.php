@@ -75,7 +75,7 @@ class HomeController extends Controller
 
        ];
         User::where('id',$id)->update($data);
-        return view('pages.home');
+        return redirect('/home');
 
     }
 
