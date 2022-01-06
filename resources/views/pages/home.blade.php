@@ -9,7 +9,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            #filtros
+          <a href="{{ url('home/create') }}" class=  "btn btn-primary">Adicionar Usuario</a>
         </div>
         <div class="card-body">
             <table class="table">
@@ -22,12 +22,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($usuario as $usuarios)
+                @foreach($user as $users)
                     <tr>
-                        <th scope="row">{{ $usuarios->id }}</th>
-                        <td> {{ $usuarios->name }}</td>
-                        <td> {{ $usuarios->email }}</td>
-                        <td> <a class="btn btn-primary">Editar</a>   <a class="btn btn-danger">Excluir</a>  </td>
+                        <th scope="row">{{ $users->id }}</th>
+                        <td> {{ $users->name }}</td>
+                        <td> {{ $users->email }}</td>
+
+                        <td style="display: flex">
+
+                            <a href="{{route('user.edit', $users->id)}}" class="btn btn-primary">Editar </a>
+
+                            <form action="/home/delete/{{ $users->id }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit">Excluir</button>
+                            </form>
+                        </td>
                     </tr>
 
                 @endforeach
@@ -36,7 +46,9 @@
             </table>
 
             <div class="pagination" style="display: flex; justify-content: center">
-                {{ $usuario->links('pagination::bootstrap-4') }} </div>
+                {!! $user->links('pagination::bootstrap-4') !!} </div>
+
+
         </div>
 
 

@@ -226,9 +226,14 @@ return [
 
     'menu' => [
         [
-            'text' => 'Usuários',
-            'url' => '/usuarios',
+            'text' => 'Listar Usuários',
+            'url' => '/home',
+        ],
+        [
+            'text' => 'Cadastrar novo Usuário',
+            'url' => '/home/create',
         ]
+
 
 
 
