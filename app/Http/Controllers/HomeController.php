@@ -59,7 +59,23 @@ class HomeController extends Controller
     }
 
     public function edit($id){
+        $user = User::where('id', $id)->first();
+        if(!empty($user)) {
+            return view('pages.edit', ['user'=>$user]);
+        } else {
+            return redirect()->route('user.store');
+        }
+    }
+    public function update(Request $request, $id) {
 
+        $data = [
+         'name' => $request->name,
+           'email'=> $request->email,
+
+
+       ];
+        User::where('id',$id)->update($data);
+        return view('pages.home');
 
     }
 

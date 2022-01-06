@@ -30,7 +30,7 @@
 
                         <td style="display: flex">
 
-                            <a href="{{route('user.edit', $users->id)}}" class="btn btn-primary">Editar </a>
+                            <a href="{{route('user.edit', ['id'=>$users->id])}}" class="btn btn-primary">Editar </a>
 
                             <form action="/home/delete/{{ $users->id }}" method="POST">
                                 @csrf
