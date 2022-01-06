@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\product;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ProdutosController extends Controller
@@ -36,6 +37,34 @@ class ProdutosController extends Controller
         return redirect()->route('produtos.index');
 
     }
+
+    public function destroy($id) {   // Função para deletar usuarios a partir do ID
+        product::findOrFail($id)->delete();
+        return redirect('/produtos')->with('msg', 'Produto Excluido');
+    }
+
+    public function edit($id){
+        $product = product::where('id', $id)->first();
+        if(!empty($product)) {
+            return view('pages.editproduct', ['product'=>$product]);
+        } else {
+            return redirect()->route('produtos.store');
+        }
+    }
+    public function update(Request $request, $id) {
+
+        $data = [
+            'name' => $request->name,
+            'description'=> $request->description,
+            'price' => $request->price,
+
+
+        ];
+        product::where('id',$id)->update($data);
+        return redirect('/produtos');
+
+    }
+
 
 
 }

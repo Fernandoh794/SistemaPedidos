@@ -28,6 +28,9 @@ Route::put('/{id}', [App\Http\Controllers\HomeController::class, 'update'])->nam
 Route::post('/produtos/create', [\App\Http\Controllers\ProdutosController::class, 'store'])->name('produtos.store');
 Route::get('/produtos/create', [\App\Http\Controllers\ProdutosController::class, 'create']);
 Route::get('/produtos', [\App\Http\Controllers\ProdutosController::class, 'index'])->name('produtos.index');
+Route::delete('produtos/delete/{id}', [App\Http\Controllers\ProdutosController::class, 'destroy'])->name('produtos.destroy');
+Route::get('produtos/{id}/edit', [App\Http\Controllers\ProdutosController::class, 'edit'])->name('produtos.edit');
+Route::put('/{id}', [App\Http\Controllers\ProdutosController::class, 'update'])->name('produtos.update');
 
 
 

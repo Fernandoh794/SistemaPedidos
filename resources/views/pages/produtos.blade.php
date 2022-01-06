@@ -25,18 +25,18 @@
             </thead>
             <tbody>
 
-            @foreach($product as $product)
+            @foreach($product as $products)
                 <tr>
-                    <th scope="row">{{ $product->id }}</th>
-                    <td> {{ $product->name }}</td>
-                    <td> {{ $product->description }}</td>
-                    <td> {{ $product->price }}</td>
+                    <th scope="row">{{ $products->id }}</th>
+                    <td> {{ $products->name }}</td>
+                    <td> {{ $products->description }}</td>
+                    <td> {{ $products->price }}</td>
 
                     <td style="display: flex">
+                        <a href="" class="btn btn-secondary">Inserir no Pedido</a>
+                        <a href="{{ route('produtos.edit', ['id'=> $products-> id]) }}" class="btn btn-primary">Editar </a>
 
-                        <a h class="btn btn-primary">Editar </a>
-
-                        <form>
+                        <form action="/produtos/delete/{{ $products->id }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger" type="submit">Excluir</button>
@@ -49,7 +49,8 @@
         </table>
 
         <div class="pagination" style="display: flex; justify-content: center">
-             </div>
+            {!! $product->links('pagination::bootstrap-4') !!} </div>
+
 
 
     </div>
