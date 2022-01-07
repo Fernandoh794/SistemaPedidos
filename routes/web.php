@@ -39,22 +39,11 @@ Route::post('/produtos/search', [App\Http\Controllers\ProdutosController::class,
 Route::get('/pedidos', [\App\Http\Controllers\PedidosController::class, 'index'])->name('pedidos.index');
 
 //User Eloquent
+Route::get('/onetoone', [\App\Http\Controllers\PedidosController::class, 'umparamuitos']
+);
 
-Route::get('/usuario/{id}', [\App\Http\Controllers\UserController::class, 'show'] );
 
 
-
-Route::get('/one-to-many', function (){
-    $user = \App\Models\User::first();
-    $pedidos = $user->pedidos;
-    $data = [
-        'name' => 'Modulo X1'
-    ];
-    $user->pedidos()->create($data);
-
-    dd($pedidos);
-
-});
 
 
 

@@ -20,7 +20,11 @@ class CreateProductTable extends Migration
             $table->double('price', 256);
             $table->timestamps();
         });
+
+
     }
+
+
 
     /**
      * Reverse the migrations.

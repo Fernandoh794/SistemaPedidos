@@ -15,8 +15,10 @@ class CreatePedidosTable extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 256);
             $table->timestamps();
+            $table->string('name',);
+            $table->foreignId('user_id')->constrained('users');
+
         });
     }
 
