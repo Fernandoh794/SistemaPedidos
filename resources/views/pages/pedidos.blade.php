@@ -8,37 +8,19 @@
 
 @section('content')
 
-    <div style="display: flex; justify-content: center" class="row" >
+    <div class="card" style="width: 30%">
+        <div class="card-header"> <p> Usuario: {{  $user->name   }} </p> </div>
+        <div class="card-body">
+            <h5>Pedidos:</h5>
+            @foreach ($user->pedidos as $pedido)
+                {{$pedido->name}}
 
-        <div class="card" style="width: 40vw; text-align: center" >
-            <div class="card-body">
-                <h5 class="card-title">Fernando Henrique</h5>
+            @endforeach
 
-                <p class="card-text">Capacete || Calça</p>
-                <div class="alert alert-danger" role="alert">
-                    PEDIDO EM ABERTO! Finalize, ou cancele.
-                </div>
-                <a href="#" class="btn btn-primary">Finalizar</a>
-                <a href="#" class="btn btn-secondary">Cancelar</a>
-            </div>
+
         </div>
-
-        <div class="card" style="width: 40vw; text-align: center" >
-            <div class="card-body">
-                <h5 class="card-title">Fernando Henrique</h5>
-
-                <p class="card-text">Capacete || Calça</p>
-                <div class="alert alert-danger" role="alert">
-                    PEDIDO EM ABERTO! Finalize, ou cancele.
-                </div>
-                <a href="#" class="btn btn-primary">Finalizar</a>
-                <a href="#" class="btn btn-secondary">Cancelar</a>
-            </div>
-        </div>
-
-
-
     </div>
+
 
 
 

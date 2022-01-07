@@ -49,7 +49,7 @@
                     <td> {{ $products->price }}</td>
 
                     <td style="display: flex">
-                        <a href="" class="btn btn-secondary">Inserir no Pedido</a>
+
                         <a href="{{ route('produtos.edit', ['id'=> $products-> id]) }}" class="btn btn-primary">Editar </a>
 
                         <form action="/produtos/delete/{{ $products->id }}" method="POST">

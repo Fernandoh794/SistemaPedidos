@@ -15,18 +15,12 @@ class PedidosController extends Controller
 
     public function umparamuitos(){
         $user = \App\Models\User::with('pedidos')->first();
-        echo $user->name;
-        echo '<br>';
-        foreach ($user->pedidos as $pedido){
-                echo "pedidos: {$pedido->name}";
-
-        }
-
-
-
-
         $pedidos = $user->pedidos;
-        dd($pedidos);
+
+        return view('pages.pedidos', ['user' => $user, 'pedidos' => $pedidos]);
+
+
+
 
     }
 

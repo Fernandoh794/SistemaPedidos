@@ -39,7 +39,7 @@ Route::post('/produtos/search', [App\Http\Controllers\ProdutosController::class,
 Route::get('/pedidos', [\App\Http\Controllers\PedidosController::class, 'index'])->name('pedidos.index');
 
 //User Eloquent
-Route::get('/onetoone', [\App\Http\Controllers\PedidosController::class, 'umparamuitos']
+Route::get('/pedidos', [\App\Http\Controllers\PedidosController::class, 'umparamuitos']
 );
 
 
