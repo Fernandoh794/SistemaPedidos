@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Pedidos;
 
 
 
@@ -22,7 +23,7 @@ Route::post('home/create', [App\Http\Controllers\HomeController::class, 'store']
 Route::delete('home/delete/{id}', [App\Http\Controllers\HomeController::class, 'destroy'])->name('user.destroy');
 Route::get('home/{id}/edit', [App\Http\Controllers\HomeController::class, 'edit'])->name('user.edit');
 Route::put('/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('user.update');
-
+Route::post('/home/search', [App\Http\Controllers\HomeController::class, 'search'])->name('usuario.search');
 
 // Produtos
 Route::post('/produtos/create', [\App\Http\Controllers\ProdutosController::class, 'store'])->name('produtos.store');
@@ -34,11 +35,26 @@ Route::put('/product/{id}', [App\Http\Controllers\ProdutosController::class, 'up
 Route::post('/produtos/search', [App\Http\Controllers\ProdutosController::class, 'search'])->name('produtos.search');
 
 
-
+// Pedidos
+Route::get('/pedidos', [\App\Http\Controllers\PedidosController::class, 'index'])->name('pedidos.index');
 
 //User Eloquent
 
 Route::get('/usuario/{id}', [\App\Http\Controllers\UserController::class, 'show'] );
+
+
+
+Route::get('/one-to-many', function (){
+    $user = \App\Models\User::first();
+    $pedidos = $user->pedidos;
+    $data = [
+        'name' => 'Modulo X1'
+    ];
+    $user->pedidos()->create($data);
+
+    dd($pedidos);
+
+});
 
 
 

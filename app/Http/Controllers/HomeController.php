@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\Models\product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -78,6 +79,14 @@ class HomeController extends Controller
        ];
         User::where('id',$id)->update($data);
         return redirect('/home');
+
+    }
+
+    public function search(Request $request)
+    {
+        $usuario = User::where('name','=', "%{$request->search}%" )->paginate(10);
+
+        return view('pages.home', compact('usuario'));
 
     }
 

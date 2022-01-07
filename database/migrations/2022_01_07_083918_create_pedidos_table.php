@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdToProductTable extends Migration
+class CreatePedidosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddUserIdToProductTable extends Migration
      */
     public function up()
     {
-        Schema::table('product', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained();
+        Schema::create('pedidos', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 256);
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class AddUserIdToProductTable extends Migration
      */
     public function down()
     {
-        Schema::table('product', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-        });
+        Schema::dropIfExists('pedidos');
     }
 }

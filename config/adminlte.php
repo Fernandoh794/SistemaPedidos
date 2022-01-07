@@ -242,7 +242,12 @@ return [
             'text' => 'Cadastrar Produtos',
             'url' => '/produtos/create',
 
-        ]
+        ],
+        [
+        'text' => 'Pedidos',
+        'url' => '/pedidos',
+
+    ]
 
 
 

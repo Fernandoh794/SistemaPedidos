@@ -9,7 +9,9 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-          <a href="{{ url('home/create') }}" class=  "btn btn-primary">Adicionar Usuario</a>
+
+
+
         </div>
         <div class="card-body">
             <table class="table">
@@ -22,6 +24,8 @@
                 </tr>
                 </thead>
                 <tbody>
+
+
                 @foreach($user as $users)
                     <tr>
                         <th scope="row">{{ $users->id }}</th>
