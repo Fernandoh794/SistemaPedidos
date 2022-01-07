@@ -31,9 +31,14 @@ Route::get('/produtos', [\App\Http\Controllers\ProdutosController::class, 'index
 Route::delete('produtos/delete/{id}', [App\Http\Controllers\ProdutosController::class, 'destroy'])->name('produtos.destroy');
 Route::get('produtos/{id}/edit', [App\Http\Controllers\ProdutosController::class, 'edit'])->name('produtos.edit');
 Route::put('/product/{id}', [App\Http\Controllers\ProdutosController::class, 'update'])->name('produtos.update');
+Route::post('/produtos/search', [App\Http\Controllers\ProdutosController::class, 'search'])->name('produtos.search');
+
+
 
 
 //User Eloquent
+
+Route::get('/usuario/{id}', [\App\Http\Controllers\UserController::class, 'show'] );
 
 
 

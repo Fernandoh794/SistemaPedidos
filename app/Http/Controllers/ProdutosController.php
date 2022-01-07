@@ -20,7 +20,12 @@ class ProdutosController extends Controller
 
     public function index()   // Esse metodo foi usado para Listar os produtos e cadastrados e fazer Paginação;
     {
+
         $product = $this->repository->paginate(10);
+
+
+
+
 
         return view('pages.produtos', [
             'product'=> $product,
@@ -64,6 +69,20 @@ class ProdutosController extends Controller
         return redirect('/produtos');
 
     }
+
+    public function search(Request $request)
+    {
+    $product = product::where('name','=', "%{$request->search}%" )
+        ->orwhere('description', 'LIKE', "%{$request->search}%" )
+        ->paginate(10);
+
+    return view('pages.produtos', compact('product'));
+
+    }
+
+
+
+
 
 
 

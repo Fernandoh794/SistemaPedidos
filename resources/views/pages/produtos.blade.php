@@ -10,7 +10,30 @@
 
 <div class="card">
     <div class="card-header">
-        <a href="{{ url('home/create') }}" class=  "btn btn-primary">#filtros</a>
+                  <form action="{{ route('produtos.search') }}" method="post">
+                      @csrf
+                   <input name="search" type="text"  style="width: 20%" placeholder="Pesquise o Produto aqui..">
+                      <button type="submit" class="btn-primary">Pesquisar</button>
+
+                  </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
     <div class="card-body">
         <table class="table">
