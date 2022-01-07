@@ -18,13 +18,6 @@ class PedidosController extends Controller
         $pedidos = $user->pedidos;
 
         return view('pages.pedidos', ['user' => $user, 'pedidos' => $pedidos]);
-
-
-
-
     }
-
-
-
 
 }

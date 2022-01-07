@@ -1,13 +1,9 @@
 @extends('adminlte::page')
-
 @section('title', 'Cadastrar Usuario')
-
 @section('content_header')
     <h1 style="text-align: center">Cadastrar novo Usuario</h1>
 @stop
-
 @section('content')
-
 <div class="card">
     <div class="card-body">
         <form action="{{  route('user.store') }}" method="POST" class="form">
@@ -29,31 +25,16 @@
 
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
             </form>
-
-
-
-
-
-
     </div>
-
-
 
 </div>
 
+@stop
 
+@section('css')
 
+@stop
 
-
-
-
-
-        @stop
-
-        @section('css')
-
-        @stop
-
-        @section('js')
+@section('js')
             <script> console.log('Hi!'); </script>
 @stop
